@@ -15,10 +15,9 @@ export default function Navbar() {
     <nav id="nav" className={isOpen ? 'open' : ''}>
       <div className="container nav-container">
         <a href="#hero" className="nav-logo" aria-label="Waruni Gunasena Home" onClick={closeMenu}>
-          WARUNI<span>_</span>
+          Waruni Gunasena<span></span>
         </a>
         
-        {/* Mobile hamburger menu toggle */}
         <button 
           className="mobile-nav-toggle" 
           aria-label="Toggle navigation menu" 

@@ -1,19 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
+import profileImage from '../../images/profile.png';
 
 export default function Hero() {
   const [line1, setLine1] = useState('');
   const [line2, setLine2] = useState('');
   const canvasRef = useRef(null);
-  
-  // Typewriter effect logic
+
   useEffect(() => {
     const l1Target = "Waruni";
     const l2Target = "Gunasena";
     let index1 = 0;
     let index2 = 0;
     let t1, t2;
-    
-    // Start typing after loader finishes fading out
+
     const startTimeout = setTimeout(() => {
       t1 = setInterval(() => {
         if (index1 < l1Target.length) {
@@ -33,7 +32,7 @@ export default function Hero() {
           }, 350);
         }
       }, 120);
-    }, 1400); // wait for loader delay + transition
+    }, 1400);
 
     return () => {
       clearTimeout(startTimeout);
@@ -41,7 +40,7 @@ export default function Hero() {
       if (t2) clearInterval(t2);
     };
   }, []);
-  
+
   // Interactive Constellation Background logic
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -55,7 +54,7 @@ export default function Hero() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
-    
+
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
@@ -63,7 +62,7 @@ export default function Hero() {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
     };
-    
+
     const handleMouseLeave = () => {
       mouse.x = null;
       mouse.y = null;
@@ -79,7 +78,7 @@ export default function Hero() {
         this.vx = (Math.random() - 0.5) * 0.4;
         this.vy = (Math.random() - 0.5) * 0.4;
         this.size = Math.random() * 1.5 + 0.5;
-        this.baseColor = '322'; // Orchid Pink hue
+        this.baseColor = '322';
       }
 
       draw() {
@@ -90,19 +89,17 @@ export default function Hero() {
       }
 
       update() {
-        // Boundary bounce
         if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
         if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
 
         this.x += this.vx;
         this.y += this.vy;
 
-        // Hover repulsion
         if (mouse.x && mouse.y) {
           const dx = mouse.x - this.x;
           const dy = mouse.y - this.y;
           const distance = Math.hypot(dx, dy);
-          
+
           if (distance < mouse.radius) {
             const force = (mouse.radius - distance) / mouse.radius;
             this.x -= (dx / distance) * force * 1.2;
@@ -119,9 +116,8 @@ export default function Hero() {
         particles.push(new Particle());
       }
     };
-    
+
     initParticles();
-    // Re-initialize particles count on resize
     window.addEventListener('resize', initParticles);
 
     const connectParticles = () => {
@@ -143,12 +139,12 @@ export default function Hero() {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particles.forEach(p => {
         p.update();
         p.draw();
       });
-      
+
       connectParticles();
       animationFrameId = requestAnimationFrame(animate);
     };
@@ -169,7 +165,8 @@ export default function Hero() {
       <canvas id="hero-canvas" ref={canvasRef}></canvas>
       <div id="hero-mesh-overlay"></div>
 
-      <div className="container">
+      <div className="container hero-layout">
+        {/* Left: Text content */}
         <div className="hero-content">
           <p className="eyebrow">Full Stack Software Engineer</p>
           <h1>
@@ -179,6 +176,37 @@ export default function Hero() {
             <span className="cursor">_</span>
           </h1>
           <p className="tagline">React &middot; Node.js &middot; Cloud Infrastructure</p>
+
+          <div className="hero-cta-group">
+            <a href="#contact" className="btn hero-btn-primary">
+              <span>Get In Touch</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </a>
+            <a href="#projects" className="btn hero-btn-secondary">
+              <span>View Projects</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        {/* Right: Profile image */}
+        <div className="hero-image-wrapper">
+          <div className="hero-image-frame">
+            <div className="hero-image-glow"></div>
+            <div className="hero-image-ring hero-image-ring-outer"></div>
+            <div className="hero-image-ring hero-image-ring-inner"></div>
+            <img
+              src={profileImage}
+              alt="Waruni Gunasena - Full Stack Software Engineer"
+              className="hero-profile-img"
+            />
+          </div>
         </div>
       </div>
 

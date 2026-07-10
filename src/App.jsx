@@ -15,7 +15,7 @@ import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 
 export default function App() {
-  // ── Active nav highlight on scroll ──────────────────────────────────────
+ 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
     const links = document.querySelectorAll('#nav ul li a');
@@ -42,7 +42,6 @@ export default function App() {
     return () => navObserver.disconnect();
   }, []);
 
-  // ── Scroll-reveal for .reveal sections ──────────────────────────────────
   useEffect(() => {
     const reveals = document.querySelectorAll('.reveal');
 

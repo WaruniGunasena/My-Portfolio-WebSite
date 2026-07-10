@@ -442,11 +442,21 @@ section {
   pointer-events: none;
 }
 
-.hero-content {
+/* Two-column hero layout */
+.hero-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
   position: relative;
   z-index: 3;
-  max-width: 800px;
-  margin-top: 40px;
+  width: 100%;
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 0;
+  max-width: 600px;
 }
 
 .hero-content .eyebrow {
@@ -458,7 +468,7 @@ section {
 }
 
 .hero-content h1 {
-  font-size: 5rem;
+  font-size: 4.5rem;
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 2rem;
@@ -473,9 +483,121 @@ section {
 
 .hero-content .tagline {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   word-spacing: 0.1em;
+  margin-bottom: 3rem;
+}
+
+/* Hero CTA Buttons */
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-btn-primary {
+  background: var(--gradient-accent);
+  border-color: transparent;
+  color: #fff;
+}
+
+.hero-btn-primary::before {
+  display: none;
+}
+
+.hero-btn-primary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.hero-btn-secondary {
+  background: transparent;
+}
+
+/* Profile Image Side */
+.hero-image-wrapper {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-frame {
+  position: relative;
+  width: 340px;
+  height: 340px;
+}
+
+/* Outer ambient glow blob */
+.hero-image-glow {
+  position: absolute;
+  inset: -30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, var(--accent-glow-secondary) 40%, transparent 70%);
+  filter: blur(24px);
+  animation: pulseImageGlow 4s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Decorative spinning rings */
+.hero-image-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid;
+  pointer-events: none;
+}
+
+.hero-image-ring-outer {
+  inset: -18px;
+  border-color: hsla(322, 85%, 65%, 0.18);
+  border-style: dashed;
+  animation: spinRing 20s linear infinite;
+}
+
+.hero-image-ring-inner {
+  inset: -8px;
+  border-color: hsla(270, 85%, 65%, 0.22);
+  animation: spinRing 12s linear infinite reverse;
+}
+
+/* The actual photo */
+.hero-profile-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 0 5px hsla(322, 85%, 65%, 0.4),
+    0 20px 60px rgba(0, 0, 0, 0.6);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
+}
+
+.hero-image-frame:hover .hero-profile-img {
+  transform: scale(1.03);
+  box-shadow:
+    0 0 0 3px var(--bg),
+    0 0 0 5px var(--accent),
+    0 25px 70px rgba(0, 0, 0, 0.7),
+    0 0 40px var(--accent-glow);
+}
+
+@keyframes pulseImageGlow {
+  0% { opacity: 0.5; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+@keyframes spinRing {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 .scroll-indicator {
@@ -1273,8 +1395,27 @@ footer {
   }
 
   /* Hero typography */
+  .hero-layout {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
   .hero-content h1 {
     font-size: 3.5rem;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+  }
+
+  .hero-image-frame {
+    width: 260px;
+    height: 260px;
   }
 
   .timeline::before {
@@ -1309,6 +1450,11 @@ footer {
 @media (max-width: 480px) {
   .hero-content h1 {
     font-size: 2.8rem;
+  }
+
+  .hero-image-frame {
+    width: 200px;
+    height: 200px;
   }
 
   .timeline-meta {
