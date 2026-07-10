@@ -1,47 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import profileImage from '../../images/profile.png';
+import './Hero.css'; // Make sure to add the CSS below
 
 export default function Hero() {
-  const [line1, setLine1] = useState('');
-  const [line2, setLine2] = useState('');
   const canvasRef = useRef(null);
 
-  useEffect(() => {
-    const l1Target = "Waruni";
-    const l2Target = "Gunasena";
-    let index1 = 0;
-    let index2 = 0;
-    let t1, t2;
-
-    const startTimeout = setTimeout(() => {
-      t1 = setInterval(() => {
-        if (index1 < l1Target.length) {
-          setLine1(prev => prev + l1Target.charAt(index1));
-          index1++;
-        } else {
-          clearInterval(t1);
-          setTimeout(() => {
-            t2 = setInterval(() => {
-              if (index2 < l2Target.length) {
-                setLine2(prev => prev + l2Target.charAt(index2));
-                index2++;
-              } else {
-                clearInterval(t2);
-              }
-            }, 120);
-          }, 350);
-        }
-      }, 120);
-    }, 1400);
-
-    return () => {
-      clearTimeout(startTimeout);
-      if (t1) clearInterval(t1);
-      if (t2) clearInterval(t2);
-    };
-  }, []);
-
-  // Interactive Constellation Background logic
+  // Interactive Constellation Background logic (Kept exactly as you had it)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -168,16 +132,15 @@ export default function Hero() {
       <div className="container hero-layout">
         {/* Left: Text content */}
         <div className="hero-content">
-          <p className="eyebrow">Full Stack Software Engineer</p>
-          <h1>
-            <span className="line-1">{line1}</span>
+          <p className="eyebrow fade-in-up">Full Stack Software Engineer</p>
+          <h1 className="reveal-text">
+            <span className="line-1">Waruni</span>
             <br />
-            <span className="line-2">{line2}</span>
-            <span className="cursor">_</span>
+            <span className="line-2">Gunasena</span>
           </h1>
-          <p className="tagline">React &middot; Node.js &middot; Cloud Infrastructure</p>
+          <p className="tagline fade-in-up delay-3">React &middot; .NET &middot; AWS</p>
 
-          <div className="hero-cta-group">
+          <div className="hero-cta-group fade-in-up delay-4">
             <a href="#contact" className="btn hero-btn-primary">
               <span>Get In Touch</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -196,7 +159,7 @@ export default function Hero() {
         </div>
 
         {/* Right: Profile image */}
-        <div className="hero-image-wrapper">
+        <div className="hero-image-wrapper fade-in">
           <div className="hero-image-frame">
             <div className="hero-image-glow"></div>
             <div className="hero-image-ring hero-image-ring-outer"></div>

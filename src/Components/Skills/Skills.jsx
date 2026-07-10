@@ -11,7 +11,7 @@ export default function Skills() {
         </svg>
       ),
       name: "Frontend Systems",
-      badges: ["React", "Next.js", "TypeScript", "JavaScript (ES6+)", "Redux Toolkit", "HTML5 / CSS3", "Tailwind CSS"]
+      badges: ["React", "JavaScript (ES6+)", "Redux Toolkit", "HTML5 / CSS3", "Tailwind CSS"]
     },
     {
       icon: (
@@ -23,7 +23,7 @@ export default function Skills() {
         </svg>
       ),
       name: "Backend & Services",
-      badges: ["Node.js", "Express.js", "RESTful APIs", "Python", "PostgreSQL", "MongoDB", "Redis"]
+      badges: [".NET", "Node.js", "Express.js", "RESTful APIs", "Python", "MongoDB", "MYSQL", "MSSQL"]
     },
     {
       icon: (
@@ -32,7 +32,7 @@ export default function Skills() {
         </svg>
       ),
       name: "Cloud & Infrastructure",
-      badges: ["AWS (S3, EC2, Lambda)", "Docker", "GitHub Actions CI/CD", "Vercel & Netlify", "Linux Systems", "Git / Version Control"]
+      badges: ["AWS (S3, EC2)", "GitHub Actions CI/CD", "Git / Version Control"]
     }
   ];
 
