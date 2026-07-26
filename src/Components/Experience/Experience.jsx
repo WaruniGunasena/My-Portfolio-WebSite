@@ -13,11 +13,11 @@ export default function Experience() {
       date: "Mar 2024 — Dec 2024",
       company: "Agrithmics",
       role: "Software Engineer Intern",
-      desc: "Collaborated in an agile team of 6 engineers to maintain client-facing React web platforms. Implemented reusable responsive UI widgets, optimized nested SQL queries, and configured automatic deployment lint checks on GitHub Actions pipelines.",
-      tags: ["JavaScript", "React", "Tailwind CSS", "GitHub Actions", "MySQL"]
+      desc: "Developed and optimized RESTful APIs for report generation across multiple screens, improving data processing efficiency. Led the payroll module development cycle, coordinating feature releases and ensuring functionality validation with RabbitMQ.Designed and implemented responsive front-end interfaces, resolving critical bugs and enhancing UI/UX. Improved software reliability by conducting unit testing, debugging, and refining core application logic.",
+      tags: [".NET", "React.js", "MySQL", "Tailwind CSS", "GIT", "RabbitMQ", "GitHub Actions"]
     }
   ];
- 
+
   return (
     <section id="experience" className="reveal">
       <div className="container">
