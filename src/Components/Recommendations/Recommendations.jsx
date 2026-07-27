@@ -15,7 +15,6 @@ export default function Recommendations() {
       <div className="container">
         <span className="section-eyebrow">06 // Endorsements</span>
         <h2 className="section-title">Testimonials<span>.</span></h2>
-
         <div className="recommendations-slider">
           {testimonials.map((item, index) => (
             <div className="rec-card" key={index}>

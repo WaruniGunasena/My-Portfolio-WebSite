@@ -32,8 +32,6 @@ export default function Contact() {
           setIsSending(false);
           setStatusMessage({ type: 'success', text: '✓ Message Sent Successfully!' });
           setFormData({ name: '', email: '', message: '' });
-
-          // Clear success message after 5 seconds
           setTimeout(() => setStatusMessage({ type: '', text: '' }), 5000);
         },
         (error) => {
@@ -49,19 +47,14 @@ export default function Contact() {
       <div className="container">
         <span className="section-eyebrow">07 // Connection</span>
         <h2 className="section-title">Reach me<span>.</span></h2>
-
         <div className="contact-grid">
-          {/* Info panel */}
           <div className="contact-info-block">
             <p>
               Hey! Thank you so much for your time!
               <br /><br />
               Feel free to drop me an email through this form if you want to contact me on any occasion.
             </p>
-
             <div className="contact-links">
-
-              {/* LinkedIn */}
               <a href="https://www.linkedin.com/in/warunigunasena/" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Visit Waruni Gunasena's LinkedIn profile">
                 <div className="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -71,10 +64,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <span className="contact-label">Linkedin</span>
-                {/* <span className="contact-value">/in/warunigunasena</span> */}
               </a>
-
-              {/* GitHub */}
               <a href="https://github.com/WaruniGunasena" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Visit Waruni Gunasena's GitHub profile">
                 <div className="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -82,12 +72,9 @@ export default function Contact() {
                   </svg>
                 </div>
                 <span className="contact-label">Github</span>
-                {/* <span className="contact-value">/WaruniGunasena</span> */}
               </a>
             </div>
           </div>
-
-          {/* Form panel */}
           <form className="contact-form" onSubmit={handleSubmit} id="contact-form">
             <div className="form-group">
               <label htmlFor="name">Name</label>
@@ -101,7 +88,6 @@ export default function Contact() {
                 required
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
               <input
@@ -114,7 +100,6 @@ export default function Contact() {
                 required
               />
             </div>
-
             <div className="form-group">
               <label htmlFor="message">Message</label>
               <textarea
@@ -126,7 +111,6 @@ export default function Contact() {
                 required
               ></textarea>
             </div>
-
             <button type="submit" className="btn" id="form-submit" disabled={isSending}>
               <span>
                 {isSending

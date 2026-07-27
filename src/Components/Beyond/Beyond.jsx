@@ -8,8 +8,6 @@ export default function Beyond() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const closeModal = () => setIsModalOpen(false);
-
-  // Lock scroll and listen for ESC key when modal is open
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') closeModal();
@@ -139,8 +137,6 @@ export default function Beyond() {
           ))}
         </div>
       </div>
-
-      {/* Sports Achievements Modal */}
       <div
         className={`sports-modal-overlay ${isModalOpen ? 'active' : ''}`}
         onClick={closeModal}

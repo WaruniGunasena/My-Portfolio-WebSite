@@ -1,11 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import profileImage from '../../images/profile.png';
-import './Hero.css'; // Make sure to add the CSS below
+import './Hero.css';
 
 export default function Hero() {
   const canvasRef = useRef(null);
-
-  // Interactive Constellation Background logic (Kept exactly as you had it)
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -132,17 +130,17 @@ export default function Hero() {
       <div className="container hero-layout">
         {/* Left: Text content */}
         <div className="hero-content">
-          <p className="eyebrow fade-in-up">Full Stack Software Engineer</p>
+          <p className="eyebrow fade-in-up">Software Engineer</p>
           <h1 className="reveal-text">
             <span className="line-1">Waruni</span>
             <br />
             <span className="line-2">Gunasena</span>
           </h1>
-          <p className="tagline fade-in-up delay-3">React &middot; .NET &middot; AWS</p>
+          <p className="tagline fade-in-up delay-3">React &middot; .NET &middot; Java &middot; Springboot &middot; AWS</p>
 
           <div className="hero-cta-group fade-in-up delay-4">
             <a href="#contact" className="btn hero-btn-primary">
-              <span>Get In Touch</span>
+              <span>Reach Me</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="22" y1="2" x2="11" y2="13"></line>
                 <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>

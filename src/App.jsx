@@ -64,9 +64,7 @@ export default function App() {
     <>
       <Loader />
       <Navbar />
-
       <Hero />
-
       <main>
         <About />
         <Skills />
@@ -76,7 +74,6 @@ export default function App() {
         <Recommendations />
         <Contact />
       </main>
-
       <Footer />
     </>
   );
