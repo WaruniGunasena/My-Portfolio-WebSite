@@ -4,26 +4,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;700&display=swap');
 
 :root {
-  /* Colors */
-  --bg: #070709;
-  --surface: #101014;
-  --surface-hover: #16161c;
-  --border: #1d1d24;
-  --border-hover: #2d2d38;
-  --text-primary: #f4f4f7;
-  --text-secondary: #9a9ab0;
+  /* Clean Luxury Light Theme Colors */
+  --bg: #fafafd;
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+  --border: #e2e8f0;
+  --border-hover: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
 
   --accent-hue: 322;
-  /* Orchid Pink */
-  --accent: hsl(var(--accent-hue), 85%, 65%);
-  --accent-secondary: hsl(270, 85%, 65%);
+  /* Orchid Magenta Pink */
+  --accent: hsl(var(--accent-hue), 85%, 48%);
+  --accent-secondary: hsl(270, 80%, 52%);
   /* Amethyst Purple */
-  --accent-dim: hsla(var(--accent-hue), 85%, 65%, 0.08);
-  --accent-glow: hsla(var(--accent-hue), 85%, 65%, 0.2);
-  --accent-glow-secondary: hsla(270, 85%, 65%, 0.15);
+  --accent-dim: hsla(var(--accent-hue), 85%, 48%, 0.08);
+  --accent-glow: hsla(var(--accent-hue), 85%, 48%, 0.16);
+  --accent-glow-secondary: hsla(270, 80%, 52%, 0.12);
 
   --gradient-accent: linear-gradient(135deg, var(--accent), var(--accent-secondary));
-  --gradient-accent-text: linear-gradient(135deg, var(--accent) 30%, var(--accent-secondary) 100%);
+  --gradient-accent-text: linear-gradient(135deg, var(--accent) 20%, var(--accent-secondary) 100%);
 
   /* Fonts */
   --font-display: 'JetBrains Mono', monospace;
@@ -66,13 +66,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: #cbd5e1;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-dim);
-  border: 1px solid var(--accent);
+  background: var(--accent);
 }
 
 /* ==========================================================================
@@ -303,7 +302,7 @@ section {
   font-family: var(--font-display);
   font-size: 0.75rem;
   padding: 0.45rem 0.9rem;
-  background-color: hsla(240, 10%, 8%, 0.5);
+  background-color: #f1f5f9;
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--text-primary);
@@ -327,10 +326,10 @@ section {
   width: 100%;
   height: var(--nav-height);
   z-index: 100;
-  background-color: rgba(7, 7, 9, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(29, 29, 36, 0.5);
+  background-color: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.8);
   transition: all 0.3s ease;
 }
 
@@ -425,7 +424,7 @@ section {
   height: 100%;
   z-index: 1;
   pointer-events: none;
-  opacity: 0.4;
+  opacity: 0.75;
 }
 
 #hero-mesh-overlay {
@@ -436,8 +435,8 @@ section {
   height: 100%;
   z-index: 2;
   background:
-    radial-gradient(circle at 10% 20%, var(--accent-glow) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, var(--accent-glow-secondary) 0%, transparent 45%),
+    radial-gradient(circle at 10% 20%, hsla(322, 85%, 48%, 0.07) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, hsla(270, 80%, 52%, 0.08) 0%, transparent 45%),
     linear-gradient(to bottom, transparent 80%, var(--bg) 100%);
   pointer-events: none;
 }
@@ -553,14 +552,14 @@ section {
 
 .hero-image-ring-outer {
   inset: -18px;
-  border-color: hsla(322, 85%, 65%, 0.18);
+  border-color: hsla(322, 85%, 48%, 0.25);
   border-style: dashed;
   animation: spinRing 20s linear infinite;
 }
 
 .hero-image-ring-inner {
   inset: -8px;
-  border-color: hsla(270, 85%, 65%, 0.22);
+  border-color: hsla(270, 80%, 52%, 0.25);
   animation: spinRing 12s linear infinite reverse;
 }
 
@@ -681,37 +680,46 @@ section {
    ========================================================================== */
 .about-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 6rem;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: stretch;
+}
+
+.about-text {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.2rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+  display: flex;
+  align-items: center;
 }
 
 .about-text p {
-  font-size: 1.125rem;
-  color: var(--text-secondary);
-  margin-bottom: 2rem;
-  line-height: 1.7;
-}
-
-.about-text p:first-of-type {
+  font-size: 1.1rem;
   color: var(--text-primary);
-  font-size: 1.25rem;
-  line-height: 1.6;
+  line-height: 1.75;
+  margin-bottom: 0;
 }
 
 .about-stats {
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: row;
+  gap: 1.5rem;
 }
 
 .stat-tile {
+  flex: 1;
   background-color: var(--surface);
   border: 1px solid var(--border);
-  padding: 2.2rem;
-  border-radius: 8px;
+  padding: 2rem 1.75rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
   transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .stat-tile::before {
@@ -729,7 +737,7 @@ section {
 .stat-tile:hover {
   border-color: var(--border-hover);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 255, 255, 0.02);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
 .stat-tile:hover::before {
@@ -738,10 +746,10 @@ section {
 
 .stat-number {
   font-family: var(--font-display);
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   font-weight: 700;
   color: var(--accent);
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 0.5rem;
   background: var(--gradient-accent-text);
   -webkit-background-clip: text;
@@ -749,15 +757,144 @@ section {
 }
 
 .stat-label {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-primary);
   font-weight: 600;
   margin-bottom: 0.25rem;
 }
 
 .stat-sub {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   EDUCATION SUBSECTION (Inside About Me)
+   ========================================================================== */
+.education-subsection {
+  margin-top: 3.5rem;
+}
+
+.education-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
+
+.education-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.education-card {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 3.5rem;
+  align-items: center;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+  transition: all 0.35s ease;
+}
+
+.education-card:hover {
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+}
+
+.education-card.reverse {
+  grid-template-columns: 1fr 340px;
+}
+
+.education-card.reverse .education-img-container {
+  order: 2;
+}
+
+.education-card.reverse .education-content {
+  order: 1;
+}
+
+.education-img-container {
+  width: 100%;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background-color: #f1f5f9;
+  border: 1px solid var(--border);
+}
+
+.education-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.education-card:hover .education-img {
+  transform: scale(1.04);
+}
+
+.education-content h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.education-content p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.edu-link {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.edu-link:hover {
+  text-decoration: underline;
+  color: #2563eb;
+}
+
+@media (max-width: 992px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-stats {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 900px) {
+  .education-card,
+  .education-card.reverse {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .education-card.reverse .education-img-container {
+    order: -1;
+  }
+
+  .education-card.reverse .education-content {
+    order: 0;
+  }
+
+  .education-img-container {
+    height: 200px;
+  }
 }
 
 /* ==========================================================================
@@ -773,14 +910,15 @@ section {
   background-color: var(--surface);
   border: 1px solid var(--border);
   padding: 2.5rem 2rem;
-  border-radius: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
   transition: all 0.3s ease;
 }
 
 .skills-category:hover {
   border-color: var(--accent-dim);
   transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
 }
 
 .skills-category h3 {
@@ -845,7 +983,7 @@ section {
 
 .timeline-item:hover .timeline-dot {
   border-color: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
   background: var(--accent);
 }
 
@@ -894,10 +1032,10 @@ section {
   font-family: var(--font-display);
   font-size: 0.7rem;
   color: var(--text-secondary);
-  background-color: rgba(255, 255, 255, 0.02);
+  background-color: #f1f5f9;
   border: 1px solid var(--border);
   padding: 0.3rem 0.6rem;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 
 /* ==========================================================================
@@ -924,7 +1062,7 @@ section {
   border-radius: 12px;
   overflow: hidden;
   background-color: var(--surface);
-  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08);
   transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   aspect-ratio: 16/10;
   border: 1px solid var(--border);
@@ -947,15 +1085,15 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(40%) contrast(1) brightness(0.9);
+  filter: contrast(1.02) brightness(0.98);
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .project-img-overlay {
   position: absolute;
   inset: 0;
-  background-color: color-mix(in srgb, var(--proj-color) 15%, transparent);
-  mix-blend-mode: screen;
+  background-color: color-mix(in srgb, var(--proj-color) 10%, transparent);
+  mix-blend-mode: multiply;
   transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -963,7 +1101,7 @@ section {
 .project-img-container:hover {
   transform: translateY(-5px);
   border-color: var(--proj-color);
-  box-shadow: 0 20px 40px -20px color-mix(in srgb, var(--proj-color) 40%, rgba(0, 0, 0, 0.8));
+  box-shadow: 0 16px 35px color-mix(in srgb, var(--proj-color) 25%, rgba(15, 23, 42, 0.12));
 }
 
 .project-img-container:hover .project-img {
@@ -1006,21 +1144,21 @@ section {
   color: var(--proj-color);
 }
 
-/* Description Card - solid dark surface card */
+/* Description Card */
 .project-desc-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.8rem 2rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
   transition: all 0.35s ease;
   position: relative;
 }
 
 .project-desc-card:hover {
   border-color: var(--proj-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.09);
 }
 
 .project-desc {
@@ -1043,7 +1181,7 @@ section {
   font-family: var(--font-display);
   font-size: 0.72rem;
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
+  background: #f1f5f9;
   border: 1px solid var(--border);
   padding: 0.25rem 0.65rem;
   border-radius: 4px;
@@ -1052,7 +1190,7 @@ section {
 }
 
 .project-card:hover .project-tag {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--border-hover);
 }
 
 /* Links and buttons */
@@ -1067,7 +1205,7 @@ section {
   align-items: center;
   gap: 0.5rem;
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
+  background: #f1f5f9;
   border: 1px solid var(--border);
   text-decoration: none;
   font-family: var(--font-display);
@@ -1081,9 +1219,9 @@ section {
 .project-link-btn:hover {
   background: var(--proj-color);
   border-color: var(--proj-color);
-  color: #070709;
+  color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 0 20px color-mix(in srgb, var(--proj-color) 40%, transparent);
+  box-shadow: 0 4px 20px color-mix(in srgb, var(--proj-color) 40%, transparent);
   transform: translateY(-2px);
 }
 
@@ -1147,7 +1285,7 @@ section {
   .project-desc-card {
     padding: 1.25rem 1.5rem;
     margin-bottom: 1.25rem;
-    background: rgba(16, 16, 20, 0.9);
+    background: #ffffff;
   }
 }
 
@@ -1235,23 +1373,23 @@ section {
 .beyond-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
   transition: all 0.3s ease;
 }
 
 .beyond-card:hover {
   border-color: var(--border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.09);
 }
 
 .beyond-img-container {
   height: 200px;
   width: 100%;
-  background: linear-gradient(135deg, #181820, #101015);
+  background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
   position: relative;
-  /* Removed flex centering since the image will fill the space */
   overflow: hidden;
 }
 
@@ -1261,11 +1399,9 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, transparent 30%, rgba(16, 16, 20, 0.9) 100%);
+  background: linear-gradient(to bottom, transparent 30%, rgba(255, 255, 255, 0.92) 100%);
   z-index: 2;
-  /* Increased to 2 so it sits cleanly on top of the image */
   pointer-events: none;
-  /* Allows hover interactions to pass through to the card */
 }
 
 /* New Photo Styles replacing the SVG styles */
@@ -1273,27 +1409,22 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Prevents stretching; crops cleanly like a background image */
   object-position: center;
-  /* Keeps the center of your photo in focus */
   z-index: 1;
-  opacity: 0.6;
-  /* Slight dimming so your dark theme stays consistent, blends with background */
+  opacity: 0.92;
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 /* Hover Zoom Effect for the photo */
 .beyond-card:hover .beyond-photo {
   transform: scale(1.05);
-  opacity: 0.85;
-  /* Makes the photo pop a little more on hover */
+  opacity: 1;
 }
 
 .beyond-content {
   padding: 2rem;
   position: relative;
   z-index: 3;
-  /* Increased to 3 to stay above the overlay */
 }
 
 .beyond-content h3 {
@@ -1341,9 +1472,9 @@ section {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(7, 7, 9, 0.85);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -1369,7 +1500,7 @@ section {
   max-height: 85vh;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 25px 60px -12px rgba(15, 23, 42, 0.2);
   position: relative;
   transform: scale(0.95) translateY(15px);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
@@ -1378,7 +1509,7 @@ section {
 
 .sports-modal-overlay.active .sports-modal {
   transform: scale(1) translateY(0);
-  border-color: hsla(var(--accent-hue), 85%, 65%, 0.3);
+  border-color: hsla(var(--accent-hue), 85%, 48%, 0.3);
 }
 
 /* Modal Fixed Header */
@@ -1496,13 +1627,13 @@ section {
   height: 42px;
   border-radius: 50%;
   background-color: var(--surface-hover);
-  border: 1px solid hsla(var(--accent-hue), 85%, 65%, 0.25);
+  border: 1px solid hsla(var(--accent-hue), 85%, 48%, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--accent);
   flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
   z-index: 2;
   transition: all 0.3s ease;
 }
@@ -1560,17 +1691,18 @@ body.modal-open {
 .rec-card {
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 3rem;
   margin-bottom: 2rem;
   position: relative;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
 }
 
 .rec-quote-icon {
   position: absolute;
   top: 2rem;
   left: 2.5rem;
-  color: rgba(255, 255, 255, 0.02);
+  color: rgba(15, 23, 42, 0.05);
   pointer-events: none;
   z-index: 1;
 }
@@ -1595,7 +1727,7 @@ body.modal-open {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: var(--border);
+  background: #f1f5f9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1641,13 +1773,14 @@ body.modal-open {
 .contact-link-item {
   background-color: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 1.8rem;
   text-decoration: none;
   color: var(--text-primary);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.03);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -1704,7 +1837,7 @@ body.modal-open {
   border: 1px solid var(--border);
   color: var(--text-primary);
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: 0.95rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
@@ -1713,7 +1846,7 @@ body.modal-open {
 .form-control:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 8px var(--accent-glow);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
 textarea.form-control {
@@ -1798,7 +1931,7 @@ footer {
     left: 0;
     width: 100vw;
     height: calc(100vh - var(--nav-height));
-    background-color: rgba(7, 7, 9, 0.95);
+    background-color: rgba(250, 250, 253, 0.97);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     flex-direction: column;

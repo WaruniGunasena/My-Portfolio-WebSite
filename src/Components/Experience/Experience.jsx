@@ -2,13 +2,13 @@ import React from 'react';
 
 export default function Experience() {
   const jobs = [
-    // {
-    //   date: "Jan 2025 — Present",
-    //   company: "InnovateTech Labs",
-    //   role: "Associate Software Engineer",
-    //   desc: "Responsible for designing secure, high-throughput Node.js microservices and building interactive analytics dashboards. Integrated core financial payment gateways and restructured app state management patterns resulting in 25% performance improvements.",
-    //   tags: ["React", "Node.js", "Redux", "AWS Lambda", "PostgreSQL"]
-    // },
+    {
+      date: "Jan 2026 — Present",
+      company: "Self-Employed",
+      role: "Freelance Software Engineer",
+      desc: "Delivering high-quality software development services as a freelancer, providing clients with robust, custom solutions tailored to their specific business needs. Specializing in full-stack development with a focus on modern technologies and best practices.",
+      tags: ["React", "Springboot", "MySQL", "RESTful APIs", "GIT"]
+    },
     {
       date: "Mar 2024 — Dec 2024",
       company: "Agrithmics",
@@ -21,8 +21,7 @@ export default function Experience() {
   return (
     <section id="experience" className="reveal">
       <div className="container">
-        <span className="section-eyebrow">03 // Milestones</span>
-        <h2 className="section-title">Professional Journey<span>.</span></h2>
+        <h2 className="section-title">Professional Experience<span>.</span></h2>
 
         <div className="timeline">
           {jobs.map((job, index) => (

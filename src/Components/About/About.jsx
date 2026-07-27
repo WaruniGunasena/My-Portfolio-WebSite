@@ -1,31 +1,62 @@
 import React from 'react';
+import uomPhoto from '../../images/uom.jpeg';
+import schoolPhoto from '../../images/schoolPhoto.jpeg';
 
 export default function About() {
+  const educationList = [
+    {
+      title: "University of Moratuwa",
+      desc: (
+        <>
+          I hold a B.Sc. (Hons) in Information Technology with a Second Class Upper division from the Faculty of IT,{" "}
+          <a
+            href="https://uom.lk"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="edu-link"
+          >
+            University of Moratuwa, Sri Lanka
+          </a>
+          , Alongside my studies, I served as the Batch Representative for Batch '20 in both my first and final years, leading student initiatives and coordinating with university administration. Additionally, I actively participated in university sports, representing Moratuwa in competitive athletics throughout my undergraduate journey.
+        </>
+      ),
+      image: uomPhoto,
+      alt: "University of Moratuwa Graduates",
+      reverse: false
+    },
+    {
+      title: "Sivali Central College",
+      desc: (
+        <>
+          I did my A/Ls in the Biological Science stream at{" "}
+          <a
+            href="https://sivalicc.lk/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="edu-link"
+          >
+            Sivali Central College, Ratnapura
+          </a>
+          . Achieved A, B, and C passes in Chemistry, Biology, and Physics during my G.C.E. Advanced Level studies. Alongside my academic focus in the Science stream, I was an active participant in school sports, building strong discipline and teamwork skills.
+        </>
+      ),
+      image: schoolPhoto,
+      alt: "Sivali Central College",
+      reverse: true
+    }
+  ];
+
   return (
     <section id="about" className="reveal">
       <div className="container">
-        <span className="section-eyebrow">01 // Profile</span>
+        {/* <span className="section-eyebrow">01 // Profile</span> */}
         <h2 className="section-title">About Me<span>.</span></h2>
 
         <div className="about-grid">
           <div className="about-text">
             <p>
-              I am a results-driven Full Stack Software Engineer passionate about developing high-performance, user-centric web applications and robust cloud microservices.
+              I am a results-driven Full Stack Software Engineer passionate about transforming ideas into innovative digital experiences through clean code, thoughtful design, and continuous learning.
             </p>
-            <p>
-              With practical experience scaling secure RESTful APIs, implementing dynamic client-side state models, and configuring cloud deployment pipelines, I focus on writing clean, modular, and maintainable code.
-            </p>
-            <p>
-              I thrive in agile cross-functional environments, bridging modern user-interface design systems with scalable server architectures. I leverage data-driven methodologies and emerging technologies to deliver production-grade products that solve real-world problems.
-            </p>
-            {/* <a href="assets/waruni-gunasena-cv.pdf" download className="btn" aria-label="Download Waruni Gunasena's CV">
-              <span>Download CV</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
-              </svg>
-            </a> */}
           </div>
 
           <div className="about-stats">
@@ -39,11 +70,31 @@ export default function About() {
               <div className="stat-label">Information Technology </div>
               <div className="stat-sub">Second Upper | University of Moratuwa</div>
             </div>
-            {/* <div className="stat-tile">
-              <div className="stat-number">15+</div>
-              <div className="stat-label">Projects Completed</div>
-              <div className="stat-sub">Deployed web, mobile & cloud apps</div>
-            </div> */}
+          </div>
+        </div>
+
+        {/* Education Subsection */}
+        <div className="education-subsection">
+          <h3 className="education-title">Education</h3>
+          <div className="education-grid">
+            {educationList.map((edu, index) => (
+              <div
+                className={`education-card ${edu.reverse ? 'reverse' : ''}`}
+                key={index}
+              >
+                <div className="education-img-container">
+                  <img
+                    src={edu.image}
+                    alt={edu.alt}
+                    className="education-img"
+                  />
+                </div>
+                <div className="education-content">
+                  <h3>{edu.title}</h3>
+                  <p>{edu.desc}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ export default function Hero() {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${this.baseColor}, 80%, 70%, 0.6)`;
+        ctx.fillStyle = `hsla(${this.baseColor}, 85%, 50%, 0.55)`;
         ctx.fill();
       }
 
@@ -87,12 +87,12 @@ export default function Hero() {
         for (let j = i + 1; j < particles.length; j++) {
           const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
           if (dist < 120) {
-            const opacity = ((120 - dist) / 120) * 0.15;
+            const opacity = ((120 - dist) / 120) * 0.25;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `hsla(322, 85%, 65%, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.strokeStyle = `hsla(322, 85%, 50%, ${opacity})`;
+            ctx.lineWidth = 0.6;
             ctx.stroke();
           }
         }
@@ -130,15 +130,18 @@ export default function Hero() {
       <div className="container hero-layout">
         {/* Left: Text content */}
         <div className="hero-content">
-          <p className="eyebrow fade-in-up">Software Engineer</p>
+
           <h1 className="reveal-text">
             <span className="line-1">Waruni</span>
             <br />
             <span className="line-2">Gunasena</span>
           </h1>
-          <p className="tagline fade-in-up delay-3">React &middot; .NET &middot; Java &middot; Springboot &middot; AWS</p>
+          <p className="eyebrow fade-in-up">Software Engineer</p>
+          <p className="tagline fade-in-up delay-3">
+            Passionate about transforming ideas into innovative digital experiences through clean code, thoughtful design, and continuous learning.
+          </p>
 
-          <div className="hero-cta-group fade-in-up delay-4">
+          <div className="hero-cta-group fade-in-up delay-4"> 
             <a href="#contact" className="btn hero-btn-primary">
               <span>Reach Me</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
