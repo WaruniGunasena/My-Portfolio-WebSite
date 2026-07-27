@@ -40,7 +40,6 @@ export default function Projects() {
   return (
     <section id="projects" className="reveal">
       <div className="container">
-        <span className="section-eyebrow">04 // Code</span>
         <h2 className="section-title">Featured Projects<span>.</span></h2>
 
         <div className="projects-grid">

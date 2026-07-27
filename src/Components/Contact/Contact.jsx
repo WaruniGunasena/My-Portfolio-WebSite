@@ -45,7 +45,6 @@ export default function Contact() {
   return (
     <section id="contact" className="reveal">
       <div className="container">
-        <span className="section-eyebrow">07 // Connection</span>
         <h2 className="section-title">Reach me<span>.</span></h2>
         <div className="contact-grid">
           <div className="contact-info-block">
@@ -75,58 +74,60 @@ export default function Contact() {
               </a>
             </div>
           </div>
-          <form className="contact-form" onSubmit={handleSubmit} id="contact-form">
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                className="form-control"
-                placeholder="Enter your name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email Address</label>
-              <input
-                type="email"
-                id="email"
-                className="form-control"
-                placeholder="Enter your email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                className="form-control"
-                placeholder="Enter your message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="btn" id="form-submit" disabled={isSending}>
-              <span>
-                {isSending
-                  ? 'Sending...'
-                  : statusMessage.text
-                    ? statusMessage.text
-                    : 'Send Message'}
-              </span>
-              {!isSending && !statusMessage.text && (
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-                </svg>
-              )}
-            </button>
-          </form>
+          <div className="contact-form-wrapper">
+            <form className="contact-form" onSubmit={handleSubmit} id="contact-form">
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  className="form-control"
+                  placeholder="enter your name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  className="form-control"
+                  placeholder="enter your email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea
+                  id="message"
+                  className="form-control"
+                  placeholder="enter your message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" className="btn form-send-btn" id="form-submit" disabled={isSending}>
+                <span>
+                  {isSending
+                    ? 'Sending...'
+                    : statusMessage.text
+                      ? statusMessage.text
+                      : 'Send'}
+                </span>
+                {!isSending && !statusMessage.text && (
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
+                )}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>

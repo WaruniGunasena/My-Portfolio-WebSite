@@ -39,7 +39,6 @@ export default function Skills() {
   return (
     <section id="skills" className="reveal">
       <div className="container">
-        <span className="section-eyebrow">02 // Stack</span>
         <h2 className="section-title">Technical Expertise<span>.</span></h2>
 
         <div className="skills-grid">

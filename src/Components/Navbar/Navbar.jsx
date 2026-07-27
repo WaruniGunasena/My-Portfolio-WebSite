@@ -43,7 +43,7 @@ export default function Navbar() {
           <li><a href="#skills" onClick={closeMenu}>Skills</a></li>
           <li><a href="#experience" onClick={closeMenu}>Experience</a></li>
           <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
-          <li><a href="#beyond" onClick={closeMenu}>Beyond the Code</a></li>
+          <li><a href="#beyond" onClick={closeMenu}>Life Beyond Dev</a></li>
           <li><a href="#recommendations" onClick={closeMenu}>Testimonials</a></li>
           <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
         </ul>

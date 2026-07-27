@@ -8,13 +8,6 @@ export default function Footer() {
         <div className="footer-copy">
           &copy; {year} Waruni Gunasena. All rights reserved.
         </div>
-        <div className="footer-credit">
-          Built with React &amp; Vite. Deployed on{' '}
-          <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">
-            GitHub Pages
-          </a>
-          .
-        </div>
       </div>
     </footer>
   );

@@ -100,8 +100,7 @@ export default function Beyond() {
   return (
     <section id="beyond" className="reveal">
       <div className="container">
-        <span className="section-eyebrow">05 // Interests</span>
-        <h2 className="section-title">Beyond the Code<span>.</span></h2>
+        <h2 className="section-title">Life Beyond Dev<span>.</span></h2>
 
         <div className="beyond-grid">
           {interestsList.map((interest, index) => (

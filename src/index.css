@@ -878,6 +878,7 @@ section {
 }
 
 @media (max-width: 900px) {
+
   .education-card,
   .education-card.reverse {
     grid-template-columns: 1fr;
@@ -1814,7 +1815,18 @@ body.modal-open {
 }
 
 /* Contact form styling */
+.contact-form-wrapper {
+  background-color: #ffffff;
+  border: 2.5px solid var(--border);
+  border-radius: 38px;
+  padding: 10px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
 .contact-form {
+  background: linear-gradient(135deg, hsla(322, 85%, 48%, 0.18) 0%, hsla(270, 80%, 52%, 0.15) 100%);
+  border-radius: 28px;
+  padding: 2.8rem 2.2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -1827,31 +1839,71 @@ body.modal-open {
 }
 
 .form-group label {
-  font-family: var(--font-display);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0f172a;
 }
 
 .form-control {
-  background-color: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-primary);
-  padding: 1rem;
-  border-radius: 8px;
+  background-color: #ffffff;
+  border: none;
+  color: #0f172a;
+  padding: 0.95rem 1.3rem;
+  border-radius: 18px;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+  transition: all 0.25s ease;
+}
+
+.form-control::placeholder {
+  color: #94a3b8;
 }
 
 .form-control:focus {
   outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
+  box-shadow: 0 0 0 3px var(--accent-glow), 0 4px 12px rgba(15, 23, 42, 0.06);
 }
 
 textarea.form-control {
   resize: vertical;
   min-height: 120px;
+  border-radius: 20px;
+}
+
+/* Centered Pill Button matching reference image */
+.form-send-btn {
+  align-self: center;
+  margin-top: 0.75rem;
+  background-color: #ffffff;
+  border: 2px solid #ffffff;
+  color: #0f172a;
+  padding: 0.65rem 1.8rem;
+  border-radius: 30px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.06);
+}
+
+.form-send-btn:hover {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+.form-send-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* ==========================================================================
@@ -1865,15 +1917,15 @@ footer {
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
 .footer-copy {
   font-size: 0.9rem;
   color: var(--text-secondary);
+  text-align: center;
 }
 
 .footer-credit {
