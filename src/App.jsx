@@ -8,14 +8,13 @@ import About from './Components/About/About';
 import Skills from './Components/Skills/Skills';
 import Experience from './Components/Experience/Experience';
 import Projects from './Components/Projects/Projects';
-import Achievements from './Components/Achievements/Achievements';
 import Beyond from './Components/Beyond/Beyond';
 import Recommendations from './Components/Recommendations/Recommendations';
 import Contact from './Components/Contact/Contact';
 import Footer from './Components/Footer/Footer';
 
 export default function App() {
- 
+
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
     const links = document.querySelectorAll('#nav ul li a');
@@ -73,7 +72,6 @@ export default function App() {
         <Skills />
         <Experience />
         <Projects />
-        <Achievements />
         <Beyond />
         <Recommendations />
         <Contact />

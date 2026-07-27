@@ -19,19 +19,22 @@ export default function Contact() {
   return (
     <section id="contact" className="reveal">
       <div className="container">
-        <span className="section-eyebrow">08 // Connection</span>
-        <h2 className="section-title">Get In Touch<span>.</span></h2>
+        <span className="section-eyebrow">07 // Connection</span>
+        <h2 className="section-title">Reach me<span>.</span></h2>
 
         <div className="contact-grid">
           {/* Info panel */}
           <div className="contact-info-block">
             <p>
-              Have a proposal, project inquiry, or just want to chat about web technology and design? Send a message or reach out via digital handles. Let&apos;s create something together.
+              Hey! Thank you so much for your time!
+              <br></br>
+              <br></br>
+              Feel free to drop me an email through this form if you want to contact me on any occassion.
             </p>
 
             <div className="contact-links">
               {/* Email */}
-              <a href="mailto:waruni.gunasena@gmail.com" className="contact-link-item" aria-label="Send an email to Waruni Gunasena">
+              <a href="warunigunasena12@gmail.com" className="contact-link-item" aria-label="Send an email to Waruni Gunasena">
                 <div className="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -39,11 +42,11 @@ export default function Contact() {
                   </svg>
                 </div>
                 <span className="contact-label">Email</span>
-                <span className="contact-value">waruni.gunasena@gmail.com</span>
+                <span className="contact-value">warunigunasena12@gmail.com</span>
               </a>
 
               {/* LinkedIn */}
-              <a href="https://linkedin.com/in/warunig" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Visit Waruni Gunasena's LinkedIn profile">
+              <a href="https://www.linkedin.com/in/warunigunasena/" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Visit Waruni Gunasena's LinkedIn profile">
                 <div className="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -51,19 +54,19 @@ export default function Contact() {
                     <circle cx="4" cy="4" r="2" />
                   </svg>
                 </div>
-                <span className="contact-label">LinkedIn</span>
-                <span className="contact-value">/in/warunig</span>
+                <span className="contact-label">Linkedin</span>
+                <span className="contact-value">/in/warunigunasena</span>
               </a>
 
               {/* GitHub */}
-              <a href="https://github.com/WaruniG" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Visit Waruni Gunasena's GitHub profile">
+              <a href="https://github.com/WaruniGunasena" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Visit Waruni Gunasena's GitHub profile">
                 <div className="icon">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
                   </svg>
                 </div>
-                <span className="contact-label">GitHub</span>
-                <span className="contact-value">/WaruniG</span>
+                <span className="contact-label">Github</span>
+                <span className="contact-value">/WaruniGunasena</span>
               </a>
             </div>
           </div>

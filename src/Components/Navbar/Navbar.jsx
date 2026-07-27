@@ -17,10 +17,10 @@ export default function Navbar() {
         <a href="#hero" className="nav-logo" aria-label="Waruni Gunasena Home" onClick={closeMenu}>
           Waruni Gunasena<span></span>
         </a>
-        
-        <button 
-          className="mobile-nav-toggle" 
-          aria-label="Toggle navigation menu" 
+
+        <button
+          className="mobile-nav-toggle"
+          aria-label="Toggle navigation menu"
           aria-expanded={isOpen}
           onClick={toggleMenu}
         >
@@ -43,7 +43,6 @@ export default function Navbar() {
           <li><a href="#skills" onClick={closeMenu}>Skills</a></li>
           <li><a href="#experience" onClick={closeMenu}>Experience</a></li>
           <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
-          <li><a href="#achievements" onClick={closeMenu}>Achievements</a></li>
           <li><a href="#beyond" onClick={closeMenu}>Beyond the Code</a></li>
           <li><a href="#recommendations" onClick={closeMenu}>Testimonials</a></li>
           <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
