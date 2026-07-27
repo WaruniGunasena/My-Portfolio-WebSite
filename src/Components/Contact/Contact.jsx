@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSending, setIsSending] = useState(false);
+  const [statusMessage, setStatusMessage] = useState({ type: '', text: '' });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -10,10 +12,36 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Placeholder: connect to email backend later
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSending(true);
+    setStatusMessage({ type: '', text: '' });
+
+    const SERVICE_ID = 'service_7re6m2t';
+    const TEMPLATE_ID = 'template_ie3a6kt';
+    const PUBLIC_KEY = 'Y0H8tVJE0ZVlfPsWr';
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formData.message,
+    };
+
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+      .then(
+        () => {
+          setIsSending(false);
+          setStatusMessage({ type: 'success', text: '✓ Message Sent Successfully!' });
+          setFormData({ name: '', email: '', message: '' });
+
+          // Clear success message after 5 seconds
+          setTimeout(() => setStatusMessage({ type: '', text: '' }), 5000);
+        },
+        (error) => {
+          setIsSending(false);
+          console.error('EmailJS Error:', error);
+          setStatusMessage({ type: 'error', text: 'Failed to send message. Please try again.' });
+        }
+      );
   };
 
   return (
@@ -27,23 +55,11 @@ export default function Contact() {
           <div className="contact-info-block">
             <p>
               Hey! Thank you so much for your time!
-              <br></br>
-              <br></br>
-              Feel free to drop me an email through this form if you want to contact me on any occassion.
+              <br /><br />
+              Feel free to drop me an email through this form if you want to contact me on any occasion.
             </p>
 
             <div className="contact-links">
-              {/* Email */}
-              <a href="warunigunasena12@gmail.com" className="contact-link-item" aria-label="Send an email to Waruni Gunasena">
-                <div className="icon">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                </div>
-                <span className="contact-label">Email</span>
-                <span className="contact-value">warunigunasena12@gmail.com</span>
-              </a>
 
               {/* LinkedIn */}
               <a href="https://www.linkedin.com/in/warunigunasena/" target="_blank" rel="noopener noreferrer" className="contact-link-item" aria-label="Visit Waruni Gunasena's LinkedIn profile">
@@ -55,7 +71,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <span className="contact-label">Linkedin</span>
-                <span className="contact-value">/in/warunigunasena</span>
+                {/* <span className="contact-value">/in/warunigunasena</span> */}
               </a>
 
               {/* GitHub */}
@@ -66,7 +82,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <span className="contact-label">Github</span>
-                <span className="contact-value">/WaruniGunasena</span>
+                {/* <span className="contact-value">/WaruniGunasena</span> */}
               </a>
             </div>
           </div>
@@ -79,50 +95,47 @@ export default function Contact() {
                 type="text"
                 id="name"
                 className="form-control"
-                placeholder="Jane Doe"
+                placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
                 required
               />
             </div>
+
             <div className="form-group">
               <label htmlFor="email">Email Address</label>
               <input
                 type="email"
                 id="email"
                 className="form-control"
-                placeholder="jane@example.com"
+                placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="subject">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                className="form-control"
-                placeholder="Project collaboration inquiry"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-              />
-            </div>
+
             <div className="form-group">
               <label htmlFor="message">Message</label>
               <textarea
                 id="message"
                 className="form-control"
-                placeholder="Describe your project requirements or thoughts here..."
+                placeholder="Enter your message"
                 value={formData.message}
                 onChange={handleChange}
                 required
               ></textarea>
             </div>
-            <button type="submit" className="btn" id="form-submit">
-              <span>{submitted ? '✓ Message Sent!' : 'Send Message'}</span>
-              {!submitted && (
+
+            <button type="submit" className="btn" id="form-submit" disabled={isSending}>
+              <span>
+                {isSending
+                  ? 'Sending...'
+                  : statusMessage.text
+                    ? statusMessage.text
+                    : 'Send Message'}
+              </span>
+              {!isSending && !statusMessage.text && (
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
