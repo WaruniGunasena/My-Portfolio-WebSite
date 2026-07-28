@@ -68,7 +68,7 @@ export default function About() {
             <div className="stat-tile">
               <div className="stat-number">BSc(Hons)</div>
               <div className="stat-label">Information Technology </div>
-              <div className="stat-sub">Second Upper || University of Moratuwa</div>
+              <div className="stat-sub">Second Upper | University of Moratuwa</div>
             </div>
           </div>
         </div>
